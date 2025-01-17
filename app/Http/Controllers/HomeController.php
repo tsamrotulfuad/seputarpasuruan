@@ -23,7 +23,7 @@ class HomeController extends Controller
         $site = Site::get()->find(1); //site offcanvas
         $top_latest_news = DB::table('posts')
             ->select('judul')
-            ->limit(3)
+            ->limit(1)
             ->latest('tanggal')
             ->get(); //top_latest_news
         $top_post = DB::table('posts')
