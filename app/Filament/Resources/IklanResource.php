@@ -19,6 +19,7 @@ use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\IklanResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\IklanResource\RelationManagers;
+use Illuminate\Support\Facades\Storage;
 
 class IklanResource extends Resource
 {
@@ -79,7 +80,13 @@ class IklanResource extends Resource
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+                    Tables\Actions\DeleteBulkAction::make()
+                    ->after(function (Iklan $record) {
+                        // delete single
+                        if ($record->gambar) {
+                        Storage::disk('public')->delete($record->gambar);
+                        }
+                    }),
                 ]),
             ]);
     }

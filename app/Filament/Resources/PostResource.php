@@ -25,6 +25,7 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TagsInput;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
+use Illuminate\Support\Facades\Storage;
 
 class PostResource extends Resource
 {
@@ -93,7 +94,13 @@ class PostResource extends Resource
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+                    Tables\Actions\DeleteBulkAction::make()
+                    ->after(function (Post $record) {
+                        // delete single
+                        if ($record->featured_image) {
+                        Storage::disk('public')->delete($record->featured_image);
+                        }
+                    }),
                 ]),
             ]);
     }

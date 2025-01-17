@@ -17,6 +17,7 @@ use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\AuthorResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\AuthorResource\RelationManagers;
+use Illuminate\Support\Facades\Storage;
 
 class AuthorResource extends Resource
 {
@@ -64,7 +65,13 @@ class AuthorResource extends Resource
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+                    Tables\Actions\DeleteBulkAction::make()
+                    ->after(function (Author $record) {
+                        // delete single
+                        if ($record->gambar) {
+                        Storage::disk('public')->delete($record->gambar);
+                        }
+                    }),
                 ]),
             ]);
     }

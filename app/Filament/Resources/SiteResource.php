@@ -17,6 +17,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Facades\Storage;
 
 class SiteResource extends Resource
 {
@@ -63,7 +64,13 @@ class SiteResource extends Resource
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+                    Tables\Actions\DeleteBulkAction::make()
+                    ->after(function (Site $record) {
+                        // delete single
+                        if ($record->logo) {
+                        Storage::disk('public')->delete($record->logo);
+                        }
+                    }),
                 ]),
             ]);
     }
