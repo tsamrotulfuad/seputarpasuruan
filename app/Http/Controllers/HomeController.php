@@ -20,7 +20,7 @@ class HomeController extends Controller
     {
         $title = 'Seputar Pasuruan';  //title
         $sosmed = SosialMedia::all(); //sosmed
-        $site = Site::get()->find(1); //site offcanvas
+        $site = Site::get()->first(); //site offcanvas
         $top_latest_news = DB::table('posts')
             ->select('judul')
             ->limit(1)
