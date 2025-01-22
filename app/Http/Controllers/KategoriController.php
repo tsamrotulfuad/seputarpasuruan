@@ -16,7 +16,7 @@ class KategoriController extends Controller
     public function kategori(Kategori $kategori)
     {
         $title = $kategori->nama;
-        $site = Site::get()->find(1); //site offcanvas
+        $site = Site::get()->first; //site offcanvas
         $sosmed = SosialMedia::all(); //sosmed
         $top_latest_news = DB::table('posts')
             ->select('judul')
