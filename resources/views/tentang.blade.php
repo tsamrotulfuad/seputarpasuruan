@@ -50,89 +50,32 @@
                         <h2>Get in Touch</h2>
                     </div>
                     <ul class="social-area">
+                        @foreach ($sosmed as $data)
                         <li>
-                            <div><a href="#"><i class="fa-brands fa-facebook-f"></i></a> <span>Followers <em>750</em></span></div>
+                            <div><a href="{{ $data->link }}"><i class="fa-brands fa-{{ $data->slug }}"></i></a><span>Follow </span></div>
                         </li>
-                        <li>
-                            <div><a href="#"><i class="fa-brands fa-twitter"></i></a> <span>Fans <em>1236</em></span></div>
-                        </li>
-                        <li>
-                            <div><a href="#"><i class="fa-brands fa-instagram"></i></a> <span>Likes <em>523</em></span></div>
-                        </li>
-                        <li>
-                            <div><a href="#"><i class="fa-brands fa-vimeo-v"></i></a> <span>Comments <em>790</em></span></div>
-                        </li>
-                        <li>
-                            <div><a href="#"><i class="fa-brands fa-linkedin-in"></i></a> <span>Followers <em>1025</em></span></div>
-                        </li>
-                        <li>
-                            <div><a href="#"><i class="fa-brands fa-youtube"></i></a> <span>Subscribers <em>590M</em></span></div>
-                        </li>
+                        @endforeach
                     </ul>
                     <div class="back-title back-small-title pt-30">
                         <h2>Latest Posts</h2>
                     </div>
                     <ul class="back-hero-bottom">
-                        <li>
-                            <div class="image-areas">
-                                <a href="#"><img src="assets/images/dont/1.jpg" alt="image"></a>
-                            </div>
-                            <div class="back-btm-content">
-                                <a href="#" class="back-cates">Politics</a>
-                                <h3><a href="#">Time can never stop for anyone</a></h3>
-                                <ul>
-                                    <li class="back-date">by <a href="#">Jon Deo </a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="image-areas">
-                                <a href="#"><img src="assets/images/dont/2.jpg" alt="image"></a>
-                            </div>
-                            <div class="back-btm-content">
-                                <a href="#" class="back-cates">Music</a>
-                                <h3><a href="#">Everyone loves to listen to music</a></h3>
-                                <ul>
-                                    <li class="back-date">by <a href="#">Jon Deo </a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="image-areas">
-                                <a href="#"><img src="assets/images/dont/3.jpg" alt="image"></a>
-                            </div>
-                            <div class="back-btm-content">
-                                <a href="#" class="back-cates">Lifestyle</a>
-                                <h3><a href="#">10 easy habits to make your life</a></h3>
-                                <ul>
-                                    <li class="back-date">by <a href="#">Jon Deo </a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="image-areas">
-                                <a href="#"><img src="assets/images/dont/4.jpg" alt="image"></a>
-                            </div>
-                            <div class="back-btm-content">
-                                <a href="#" class="back-cates">Travel</a>
-                                <h3><a href="#">World tranding best 10 website</a></h3>
-                                <ul>
-                                    <li class="back-date">by <a href="#">Jon Deo </a></li>
-                                </ul>
-                            </div>
-                        </li>
+                    @foreach ($latest_post as $data)
+                    <li>
+                        <div class="image-areas">
+                            <a href="{{ route('post.show', $data->slug) }}"><img src="{{ url('storage/'.$data->featured_image) }}" alt="image"></a>
+                        </div>
+                        <div class="back-btm-content">
+                            <a href="{{ route('kategori', $data->kategori) }}" class="back-cates">{{ $data->kategori}}</a>
+                            <h3><a href="{{ route('post.show', $data->slug) }}">{{ \Illuminate\Support\Str::words($data->judul) }}</a></h3>
+                            <ul>
+                                <li class="back-date">by <a href="#" style="margin-left: 5px;"> {{ $data->author }} </a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    @endforeach
                     </ul>
-                    <div class="back-title back-small-title pt-25">
-                        <h2>Follow Us</h2>
-                    </div>
-                    <ul class="back-instragram">
-                        <li><a href="#"> <img src="assets/images/instragram/1.jpg" alt="image"> <i class="fa-brands fa-instagram"></i></a></li>
-                        <li><a href="#"> <img src="assets/images/instragram/2.jpg" alt="image"> <i class="fa-brands fa-instagram"></i></a></li>
-                        <li><a href="#"> <img src="assets/images/instragram/3.jpg" alt="image"> <i class="fa-brands fa-instagram"></i></a></li>
-                        <li><a href="#"> <img src="assets/images/instragram/4.jpg" alt="image"> <i class="fa-brands fa-instagram"></i></a></li>
-                        <li><a href="#"> <img src="assets/images/instragram/5.jpg" alt="image"> <i class="fa-brands fa-instagram"></i></a></li>
-                        <li><a href="#"> <img src="assets/images/instragram/6.jpg" alt="image"> <i class="fa-brands fa-instagram"></i></a></li>
-                    </ul>
+                    <!--  -->
                 </div>
             </div>
         </div>

@@ -120,7 +120,7 @@ class HomeController extends Controller
         $latest_post = DB::table('posts')
             ->join('authors', 'authors.id', '=', 'posts.author_id')
             ->join('kategoris', 'kategoris.id', '=', 'posts.kategori_id')
-            ->select('posts.judul', 'kategoris.nama as kategori', 'authors.nama as author', 'posts.featured_image')
+            ->select('posts.judul', 'kategoris.nama as kategori', 'authors.nama as author', 'posts.featured_image', 'posts.slug')
             ->where('posts.status', '=', 'publish')
             ->groupBy('posts.kategori_id')
             ->orderby('posts.tanggal', 'desc')
@@ -192,24 +192,5 @@ class HomeController extends Controller
         ]);
 
         return redirect()->route('home.kontak');
-    }
-
-    public function tentang()
-    {
-        $title = 'Tentang Kami';
-        $site = $this->index()->site;
-        $sosmed = $this->index()->sosmed;
-        $top_latest_news = $this->index()->top_latest_news;
-        $tags = $this->index()->tags;
-        $tahun = $this->index()->year;
-        $author = DB::table('authors')
-            ->groupBy('jabatan')
-            ->limit(4)
-            ->get(); //author
-
-        return view(
-            'tentang',
-            compact('title', 'site', 'sosmed', 'top_latest_news', 'tags', 'tahun', 'author')
-        );
     }
 }

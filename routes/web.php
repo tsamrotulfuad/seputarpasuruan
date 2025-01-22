@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\TentangController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +25,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/post/{slug}', [HomeController::class, 'show'])->name('post.show');
 Route::get('/kontak-kami', [HomeController::class, 'kontak'])->name('home.kontak');
 Route::post('/kontak', [HomeController::class, 'kontak_store'])->name('kontak.store');
-Route::get('/tentang-kami', [HomeController::class, 'tentang'])->name('home.tentang');
+Route::get('/tentang-kami', [TentangController::class, 'tentang'])->name('home.tentang');
 
 Route::get('/kategori/{kategori:slug}', [KategoriController::class, 'kategori'])->name('kategori');
 Route::get('/posts', [PostController::class, 'index'])->name('posts');

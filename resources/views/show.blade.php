@@ -136,17 +136,17 @@
                         <ul class="back-hero-bottom">
                             @foreach ($latest_post as $data)
                             <li>
-                                <div class="image-areas">
-                                    <a href="#"><img src="{{ url('storage/'.$data->featured_image) }}" alt="image"></a>
-                                </div>
-                                <div class="back-btm-content">
-                                    <a href="#" class="back-cates">{{ $data->kategori}}</a>
-                                    <h3><a href="#">{{ \Illuminate\Support\Str::words($data->judul) }}</a></h3>
-                                    <ul>
-                                        <li class="back-date">by <a href="#" style="margin-left: 5px;"> {{ $data->author }} </a></li>
-                                    </ul>
-                                </div>
-                            </li>
+                        <div class="image-areas">
+                            <a href="{{ route('post.show', $data->slug) }}"><img src="{{ url('storage/'.$data->featured_image) }}" alt="image"></a>
+                        </div>
+                        <div class="back-btm-content">
+                            <a href="{{ route('kategori', $data->kategori) }}" class="back-cates">{{ $data->kategori}}</a>
+                            <h3><a href="{{ route('post.show', $data->slug) }}">{{ \Illuminate\Support\Str::words($data->judul) }}</a></h3>
+                            <ul>
+                                <li class="back-date">by <a href="#" style="margin-left: 5px;"> {{ $data->author }} </a></li>
+                            </ul>
+                        </div>
+                    </li>
                             @endforeach
                         </ul>
                         @foreach ($iklan_post as $data)
