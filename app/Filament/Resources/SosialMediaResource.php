@@ -31,9 +31,12 @@ class SosialMediaResource extends Resource
             ->schema([
                 TextInput::make('nama')
                 ->live(onBlur: true)
-                ->afterStateUpdated(fn (Set $set, ?string $state) => $set('slug', Str::slug($state))),
-                TextInput::make('slug'),
+                ->afterStateUpdated(fn (Set $set, ?string $state) => $set('slug', Str::slug($state)))
+                ->required(),
+                TextInput::make('slug')
+                ->required(),
                 TextInput::make('link')
+                ->required()
             ]);
     }
 

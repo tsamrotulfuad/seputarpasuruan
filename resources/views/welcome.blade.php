@@ -3,8 +3,10 @@
     <head>
         <!--================= Meta tag =================-->
         <meta charset="utf-8">
-        <title>Home | {{ $title }}</title>
-        <meta name="description" content="">
+        <title>{{ $title }}</title>
+        <meta name="description" content="Seputar Pasuruan - Kenali dan Cintai Daerahmu">
+        <meta name="keywords" content="seputarpasuruan Seputar Pasuruan seputar pasuruan">
+        <meta name="author" content="sekoncoan group">
         <!--================= Responsive Tag =================-->
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">

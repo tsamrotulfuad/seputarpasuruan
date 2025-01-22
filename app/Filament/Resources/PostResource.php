@@ -41,35 +41,44 @@ class PostResource extends Resource
             ->schema([
                 TextInput::make('judul')
                 ->live(onBlur: true)
-                ->afterStateUpdated(fn (Set $set, ?string $state) => $set('slug', Str::slug($state))),
-                TextInput::make('slug'),
-                RichEditor::make('konten'),
+                ->afterStateUpdated(fn (Set $set, ?string $state) => $set('slug', Str::slug($state)))
+                ->required(),
+                TextInput::make('slug')
+                ->required(),
+                RichEditor::make('konten')
+                ->required(),
                 Select::make('kategori_id')
                 ->options(Kategori::all()->pluck('nama', 'id'))
                 ->searchable()
-                ->native(false),
+                ->native(false)
+                ->required(),
                 Select::make('tags')
                 ->options(Tag::all()->pluck('nama', 'id'))
                 ->searchable()
                 ->multiple()
-                ->native(false),
+                ->native(false)
+                ->required(),
                 Select::make('status')
                 ->options([
                     'draft' => 'Draft',
                     'publish' => 'Publish'
                 ])
-                ->native(false),
+                ->native(false)
+                ->required(),
                 Select::make('author_id')
                 ->options(Author::all()->pluck('nama', 'id'))
                 ->searchable()
-                ->native(false),
+                ->native(false)
+                ->required(),
                 FileUpload::make('featured_image')
                 ->image()
                 ->imageEditor()
-                ->preserveFilenames(),
+                ->preserveFilenames()
+                ->required(),
                 DatePicker::make('tanggal')
                 ->label('Tanggal Publish')
-                ->native(false),
+                ->native(false)
+                ->required(),
             ]);
     }
 

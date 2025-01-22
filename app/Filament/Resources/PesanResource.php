@@ -28,11 +28,16 @@ class PesanResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('nama'),
-                TextInput::make('subject'),
-                TextInput::make('email'),
-                TextInput::make('phone'),
+                TextInput::make('nama')
+                ->required(),
+                TextInput::make('subject')
+                ->required(),
+                TextInput::make('email')
+                ->required(),
+                TextInput::make('phone')
+                ->required(),
                 Textarea::make('message')
+                ->required()
             ]);
     }
 

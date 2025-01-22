@@ -31,17 +31,23 @@ class SiteResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('nama'),
-                Textarea::make('deskripsi'),
-                Textarea::make('alamat'),
+                TextInput::make('nama')
+                ->required(),
+                Textarea::make('deskripsi')
+                ->required(),
+                Textarea::make('alamat')
+                ->required(),
                 TextInput::make('email')
-                ->email(),
+                ->email()
+                ->required(),
                 TextInput::make('telpon')
-                ->numeric(),
+                ->numeric()
+                ->required(),
                 FileUpload::make('logo')
                 ->image()
                 ->preserveFilenames()
-                ->directory('logo'),
+                ->directory('logo')
+                ->required(),
             ]);
     }
 

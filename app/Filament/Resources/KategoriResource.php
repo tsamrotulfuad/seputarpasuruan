@@ -32,9 +32,12 @@ class KategoriResource extends Resource
             ->schema([
                 TextInput::make('nama')
                 ->live(onBlur: true)
-                ->afterStateUpdated(fn (Set $set, ?string $state) => $set('slug', Str::slug($state))),
-                TextInput::make('slug'),
-                Textarea::make('deskripsi'),
+                ->afterStateUpdated(fn (Set $set, ?string $state) => $set('slug', Str::slug($state)))
+                ->required(),
+                TextInput::make('slug'
+                ->required()),
+                Textarea::make('deskripsi')
+                ->required(),
             ]);
     }
 

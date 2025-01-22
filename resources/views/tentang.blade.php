@@ -29,18 +29,12 @@
                     <div class="back-title">
                         <h2>Who we Are?</h2>
                     </div>
-                    <p>Possimus labore ad tempora blandit totam blanditiis fusce urna mollit facilisi expedita? Sociis, facilisis adipisci maiores dolores voluptate odio magna eius iste facilisi illo, illo elementum per interdum! Odit pellentesque atque commodi, hic hendrerit leo commodo voluptates maiores mollit, dolor voluptatem recusandae dolorem dolore hac, iaculis, aliquet! Earum facere, nihil, sodales cillum! Arcu pulvinar, temporibus integer ullamcorper.</p>
+                    <p></p>
                     <div class="back-about-image pt-30 pb-30">
-                        <img src="assets/images/about.png" alt="Back Add">
+                        <img src="{{ url('storage/'. $site->logo)}}" alt="Back Add">
                     </div>
-                    <h4>Unique visual system and method.</h4>
-                    <p>Rhoncus urna aliquet? Magni varius? Tempora penatibus odio quas quis cupidatat magni? Dis exercitation, dignissimos vestibulum? Totam nihil, pulvinar etiam platea itaque, officia? Cillum auctor facilis, eu nostra euismod explicabo. Voluptate eget ullam omnis habitant sociis vivamus.</p>
-                    <ul class="dot-list">
-                        <li>User Experience</li>
-                        <li>Unique layouts Blocks</li>
-                        <li>Strategy and Art Direction</li>
-                    </ul>
-                    <p>Adipisci, reprehenderit platea cras ut quia consectetur convallis.</p>
+                    <h4>Seputar Pasuruan x Sekoncoan Group</h4>
+                    <p>Kenali dan Cintai Daerahmu</p>
                     <div class="pt-20">
                         <a href="{{ route('home.kontak')}}" class="back-btn">Kontak Kami</a>
                     </div>
@@ -82,78 +76,5 @@
     </div>
     <!--================= Back Whats Posts End Here =================-->
 
-    <!--================= Back Team Section Start Here =================-->
-    <div class="back-team">
-        <div class="container">
-            <div class="back-title">
-                <h2>Meet Our Team</h2>
-            </div>
-            <div class="team-slider owl-carousel">
-                <div class="single-team">
-                    <div class="team-img">
-                        <img src="assets/images/team/1.jpg" alt="Team Image">
-                        <ul class="social-links">
-                            <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-                            <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-                            <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="team-info">
-                        <h3 class="name">Andrew Flintof Jr</h3>
-                        <p class="desgnation">Sr. Creative Director</p>
-                    </div>
-                </div>
-
-                <div class="single-team">
-                    <div class="team-img">
-                        <img src="assets/images/team/2.jpg" alt="Team Image">
-                        <ul class="social-links">
-                            <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-                            <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-                            <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="team-info">
-                        <h3 class="name">Halle Berry Nastia</h3>
-                        <p class="desgnation">Art Director</p>
-                    </div>
-                </div>
-
-                <div class="single-team">
-                    <div class="team-img">
-                        <img src="assets/images/team/3.jpg" alt="Team Image">
-                        <ul class="social-links">
-                            <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-                            <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-                            <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="team-info">
-                        <h3 class="name">Glenn Close Rossie</h3>
-                        <p class="desgnation">Marketing Head</p>
-                    </div>
-                </div>
-
-                <div class="single-team">
-                    <div class="team-img">
-                        <img src="assets/images/team/4.jpg" alt="Team Image">
-                        <ul class="social-links">
-                            <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-                            <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-                            <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="team-info">
-                        <h3 class="name">Johnny Depp Bosman</h3>
-                        <p class="desgnation">Manager & CEO</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
 @endsection

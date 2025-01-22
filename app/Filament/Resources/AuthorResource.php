@@ -31,20 +31,24 @@ class AuthorResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('nama'),
+                TextInput::make('nama')
+                ->required(),
                 Select::make('jabatan')
                     ->options([
                         'editor' => 'Editor',
                         'author' => 'Author',
                         'contributor' => 'Contributor',
-                    ])->native(false),
+                    ])
+                    ->native(false)
+                    ->required(),
                 FileUpload::make('gambar')
                     ->image()
                     ->avatar()
                     ->imageEditor()
                     ->circleCropper()
                     ->directory('author')
-                    ->preserveFilenames(),
+                    ->preserveFilenames()
+                    ->required(),
             ]);
     }
 

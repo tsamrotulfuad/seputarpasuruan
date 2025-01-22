@@ -33,7 +33,8 @@ class IklanResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('nama'),
+                TextInput::make('nama')
+                ->required(),
                 FileUpload::make('gambar')
                 ->image()
                 ->openable()
@@ -46,17 +47,21 @@ class IklanResource extends Resource
                     'sidebar' => 'Sidebar',
                     'post_sidebar' => 'Post Sidebar',
                 ])
-                ->native(false),
+                ->native(false)
+                ->required(),
                 DatePicker::make('tanggal_mulai')
-                ->native(false),
+                ->native(false)
+                ->required(),
                 DatePicker::make('tanggal_selesai')
-                ->native(false),
+                ->native(false)
+                ->required(),
                 Select::make('status')
                 ->options([
                     'aktif' => 'Aktif',
                     'nonaktif' => 'Nonaktif',
                 ])
                 ->native(false)
+                ->required()
             ]);
     }
 

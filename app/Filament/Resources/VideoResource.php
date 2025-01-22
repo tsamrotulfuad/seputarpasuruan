@@ -33,18 +33,23 @@ class VideoResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('nama'),
+                TextInput::make('nama')
+                ->required(),
                 FileUpload::make('cover')
                 ->image()
                 ->imageEditor()
-                ->preserveFilenames(),
+                ->preserveFilenames()
+                ->required(),
                 Select::make('author_id')
                 ->options(Author::all()->pluck('nama', 'id'))
                 ->searchable()
-                ->native(false),
+                ->native(false)
+                ->required(),
                 DatePicker::make('tanggal')
-                ->native(false),
-                TextInput::make('link'),
+                ->native(false)
+                ->required(),
+                TextInput::make('link')
+                ->required(),
             ]);
     }
 
