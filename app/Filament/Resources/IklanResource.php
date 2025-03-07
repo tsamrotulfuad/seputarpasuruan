@@ -69,7 +69,8 @@ class IklanResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('nama'),
+                TextColumn::make('nama')
+                ->searchable(),
                 ImageColumn::make('gambar'),
                 TextColumn::make('posisi'),
                 TextColumn::make('tanggal_mulai'),

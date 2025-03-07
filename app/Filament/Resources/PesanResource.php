@@ -45,7 +45,8 @@ class PesanResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('nama'),
+                TextColumn::make('nama')
+                ->searchable(),
                 TextColumn::make('subject'),
                 TextColumn::make('email'),
                 TextColumn::make('phone'),

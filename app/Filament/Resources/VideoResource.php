@@ -57,7 +57,8 @@ class VideoResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('nama'),
+                TextColumn::make('nama')
+                ->searchable(),
                 ImageColumn::make('cover')
                  ->width(150)
                  ->height(75),

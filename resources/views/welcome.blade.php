@@ -236,7 +236,7 @@
                                 <div class="footer-tag">
                                     <ul>
                                         @foreach ($tags as $data)
-                                        <li><a href="about.html">{{ $data->nama }}</a></li>
+                                        <li><a href="{{ $data->link }}">{{ $data->nama }}</a></li>
                                         @endforeach
                                     </ul>
                                 </div>

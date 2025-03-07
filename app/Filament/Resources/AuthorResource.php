@@ -56,7 +56,8 @@ class AuthorResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('nama'),
+                TextColumn::make('nama')
+                ->searchable(),
                 TextColumn::make('jabatan'),
                 ImageColumn::make('gambar')
                     ->circular()

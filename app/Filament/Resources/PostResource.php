@@ -86,7 +86,8 @@ class PostResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('judul'),
+                TextColumn::make('judul')
+                ->searchable(),
                 TextColumn::make('konten')
                 ->limit(25),
                 TextColumn::make('kategori.nama'),
